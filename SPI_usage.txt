@@ -1,0 +1,16 @@
+1.
+reset
+legalább 1 órajel hosszan aktív alacsony
+
+2.
+küldés
+-send bemeneten legalább 1 órajel hosszan impulzus
+-2 órajellel késõbbi felfutó óraélre olvassa be az adatbuszon lévõ tartalmat (data_in)
+-majd ennek hatására szépen kilépteti a MOSI-n a biteket, és a MISO-n mintavételez
+
+3.
+adat beolvasva
+-done magas értékével jelzi hogy a kimeneti adatbuszon érvényes adat van (data_out)
+
+
+Az indulásnál a SS egy órajellel elõbb, és a végén egy órajellel késõbb vált át magasba, mivel az A4980 adatlapjában az erre vonatkozó idõzítési megszorítások legalább 30ns-ot írnak elõ. Jelen esetben 16MHz órajellel ez 62,5ns delay lesz.
