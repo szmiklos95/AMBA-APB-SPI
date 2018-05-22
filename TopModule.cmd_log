@@ -1,0 +1,4 @@
+xst -intstyle ise -ifn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.xst" -ofn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.syr" 
+xst -intstyle ise -ifn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.xst" -ofn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.syr" 
+xst -intstyle ise -ifn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.xst" -ofn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.syr" 
+xst -intstyle ise -ifn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.xst" -ofn "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.syr" 

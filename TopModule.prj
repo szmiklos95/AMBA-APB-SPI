@@ -1,0 +1,7 @@
+verilog work "shiftreg16_out.v"
+verilog work "shiftreg16_in.v"
+verilog work "rategen.v"
+verilog work "control.v"
+verilog work "TopMod_spi.v"
+verilog work "APB_interface.v"
+verilog work "TopModule.v"
