@@ -1,0 +1,4 @@
+*.*
+isim/pn_info
+!*.v
+!.gitignore
