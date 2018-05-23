@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.21 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: TopModule.prj
 
@@ -104,13 +104,25 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
+Compiling verilog file "WriteHandler.v" in library work
 Compiling verilog file "shiftreg16_out.v" in library work
+Module <WriteHandler> compiled
 Compiling verilog file "shiftreg16_in.v" in library work
 Module <shiftreg16_out> compiled
-Compiling verilog file "rategen.v" in library work
+Compiling verilog file "RegisterSelect.v" in library work
 Module <shiftreg16_in> compiled
-Compiling verilog file "control.v" in library work
+Compiling verilog file "ReadHandler.v" in library work
+Module <RegisterSelect> compiled
+Compiling verilog file "rategen.v" in library work
+Module <ReadHandler> compiled
+Compiling verilog file "Protection.v" in library work
 Module <rategen> compiled
+Compiling verilog file "PREADY_Setter.v" in library work
+Module <Protection> compiled
+Compiling verilog file "ErrorHandler.v" in library work
+Module <PREADY_Setter> compiled
+Compiling verilog file "control.v" in library work
+Module <ErrorHandler> compiled
 Compiling verilog file "TopMod_spi.v" in library work
 Module <control> compiled
 Compiling verilog file "APB_interface.v" in library work
@@ -129,6 +141,8 @@ Analyzing hierarchy for module <TopModule> in library <work>.
 
 Analyzing hierarchy for module <TopMod_spi> in library <work>.
 
+Analyzing hierarchy for module <APB_interface> in library <work>.
+
 Analyzing hierarchy for module <rategen> in library <work>.
 
 Analyzing hierarchy for module <shiftreg16_in> in library <work>.
@@ -143,13 +157,21 @@ Analyzing hierarchy for module <control> in library <work> with parameters.
 	Wait1 = "010"
 	Wait2 = "100"
 
+Analyzing hierarchy for module <ErrorHandler> in library <work>.
+
+Analyzing hierarchy for module <RegisterSelect> in library <work>.
+
+Analyzing hierarchy for module <WriteHandler> in library <work>.
+
+Analyzing hierarchy for module <ReadHandler> in library <work>.
+
+Analyzing hierarchy for module <PREADY_Setter> in library <work>.
+
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <TopModule>.
-WARNING:Xst:852 - "TopModule.v" line 43: Unconnected input port 'send' of instance 'SPI_module' is tied to GND.
-WARNING:Xst:2211 - "APB_interface.v" line 54: Instantiating black box module <APB_interface>.
 Module <TopModule> is correct for synthesis.
  
 Analyzing module <TopMod_spi> in library <work>.
@@ -172,6 +194,25 @@ Analyzing module <control> in library <work>.
 	Wait1 = 3'b010
 	Wait2 = 3'b100
 Module <control> is correct for synthesis.
+ 
+Analyzing module <APB_interface> in library <work>.
+WARNING:Xst:2211 - "Protection.v" line 46: Instantiating black box module <Protection>.
+Module <APB_interface> is correct for synthesis.
+ 
+Analyzing module <ErrorHandler> in library <work>.
+Module <ErrorHandler> is correct for synthesis.
+ 
+Analyzing module <RegisterSelect> in library <work>.
+Module <RegisterSelect> is correct for synthesis.
+ 
+Analyzing module <WriteHandler> in library <work>.
+Module <WriteHandler> is correct for synthesis.
+ 
+Analyzing module <ReadHandler> in library <work>.
+Module <ReadHandler> is correct for synthesis.
+ 
+Analyzing module <PREADY_Setter> in library <work>.
+Module <PREADY_Setter> is correct for synthesis.
  
 
 =========================================================================
@@ -206,16 +247,12 @@ Unit <shiftreg16_out> synthesized.
 
 Synthesizing Unit <control>.
     Related source file is "control.v".
-INFO:Xst:1799 - State 010 is never reached in FSM <curr_state>.
-INFO:Xst:1799 - State 001 is never reached in FSM <curr_state>.
-INFO:Xst:1799 - State 011 is never reached in FSM <curr_state>.
-INFO:Xst:1799 - State 101 is never reached in FSM <curr_state>.
     Found finite state machine <FSM_0> for signal <curr_state>.
     -----------------------------------------------------------------------
-    | States             | 1                                              |
-    | Transitions        | 1                                              |
-    | Inputs             | 1                                              |
-    | Outputs            | 2                                              |
+    | States             | 5                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 6                                              |
     | Clock              | clk                       (rising_edge)        |
     | Reset              | nrst                      (negative)           |
     | Reset type         | synchronous                                    |
@@ -230,22 +267,53 @@ INFO:Xst:1799 - State 101 is never reached in FSM <curr_state>.
 Unit <control> synthesized.
 
 
+Synthesizing Unit <ErrorHandler>.
+    Related source file is "ErrorHandler.v".
+Unit <ErrorHandler> synthesized.
+
+
+Synthesizing Unit <RegisterSelect>.
+    Related source file is "RegisterSelect.v".
+Unit <RegisterSelect> synthesized.
+
+
+Synthesizing Unit <WriteHandler>.
+    Related source file is "WriteHandler.v".
+    Found 16-bit register for signal <reg_APB_data_out>.
+    Found 1-bit register for signal <reg_PREADY_W>.
+    Found 1-bit register for signal <reg_SPI_send>.
+    Summary:
+	inferred  18 D-type flip-flop(s).
+Unit <WriteHandler> synthesized.
+
+
+Synthesizing Unit <ReadHandler>.
+    Related source file is "ReadHandler.v".
+    Found 16-bit register for signal <reg_PRDATA>.
+    Found 1-bit register for signal <reg_PREADY_R>.
+    Summary:
+	inferred  17 D-type flip-flop(s).
+Unit <ReadHandler> synthesized.
+
+
+Synthesizing Unit <PREADY_Setter>.
+    Related source file is "PREADY_Setter.v".
+Unit <PREADY_Setter> synthesized.
+
+
 Synthesizing Unit <TopMod_spi>.
     Related source file is "TopMod_spi.v".
-WARNING:Xst:1780 - Signal <clk_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
 Unit <TopMod_spi> synthesized.
+
+
+Synthesizing Unit <APB_interface>.
+    Related source file is "APB_interface.v".
+WARNING:Xst:647 - Input <PSTRB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <APB_interface> synthesized.
 
 
 Synthesizing Unit <TopModule>.
     Related source file is "TopModule.v".
-WARNING:Xst:647 - Input <PADDR> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <PSTRB> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <PWRITE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1306 - Output <PREADY> is never assigned.
-WARNING:Xst:647 - Input <PENABLE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:1306 - Output <PSLVERR> is never assigned.
-WARNING:Xst:647 - Input <PROT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <PSEL0> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 Unit <TopModule> synthesized.
 
 
@@ -256,8 +324,9 @@ Macro Statistics
 # Counters                                             : 2
  4-bit up counter                                      : 1
  5-bit up counter                                      : 1
-# Registers                                            : 2
- 16-bit register                                       : 2
+# Registers                                            : 7
+ 1-bit register                                        : 3
+ 16-bit register                                       : 4
 
 =========================================================================
 
@@ -271,128 +340,52 @@ Optimizing FSM <SPI_module/spi_control/curr_state/FSM> on signal <curr_state[1:3
  State | Encoding
 -------------------
  000   | 000
- 001   | unreached
- 010   | unreached
- 011   | unreached
- 101   | unreached
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 101   | 101
 -------------------
-WARNING:Xst:1710 - FF/Latch <data_0> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <data_0> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_1> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_1> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_2> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_2> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_3> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_3> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_4> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_4> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_5> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_5> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_6> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_6> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_7> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_7> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_8> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_8> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_9> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_9> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_10> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_10> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_11> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_11> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_12> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_12> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_13> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_13> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_14> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_14> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_15> (without init value) has a constant value of 0 in block <shiftregister16_out>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_15> (without init value) has a constant value of 0 in block <shiftregister16_in>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
 # FSMs                                                 : 1
-# Counters                                             : 1
+# Counters                                             : 2
  4-bit up counter                                      : 1
-# Registers                                            : 32
- Flip-Flops                                            : 32
+ 5-bit up counter                                      : 1
+# Registers                                            : 67
+ Flip-Flops                                            : 67
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <SPI_module/rate_generator/cntr_0> (without init value) has a constant value of 1 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/rate_generator/cntr_1> (without init value) has a constant value of 1 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/rate_generator/cntr_2> (without init value) has a constant value of 1 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/rate_generator/cntr_3> (without init value) has a constant value of 1 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <TopModule> ...
 
 Optimizing unit <shiftreg16_in> ...
 
 Optimizing unit <shiftreg16_out> ...
-WARNING:Xst:1710 - FF/Latch <SPI_module/shiftregister16_in/data_0> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_0> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_1> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_1> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_2> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_2> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_3> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_3> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_4> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_4> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_5> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_5> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_6> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_6> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_7> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_7> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_8> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_8> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_9> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_9> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_10> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_10> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_11> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_11> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_12> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_12> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_13> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_13> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_14> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_14> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_out/data_15> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_module/shiftregister16_in/data_15> (without init value) has a constant value of 0 in block <TopModule>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <WriteHandler> ...
+
+Optimizing unit <ReadHandler> ...
 
 Mapping all equations...
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<15>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<14>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<13>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<12>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<11>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<10>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<9>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<8>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<7>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<6>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<5>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<4>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<3>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<2>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<1>> driven by black box <APB_interface>. Possible simulation mismatch.
-WARNING:Xst:2036 - Inserting OBUF on port <PRDATA<0>> driven by black box <APB_interface>. Possible simulation mismatch.
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block TopModule, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block TopModule, actual ratio is 2.
 
 Final Macro Processing ...
 
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 79
+ Flip-Flops                                            : 79
+
 =========================================================================
 
 =========================================================================
@@ -417,17 +410,31 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 47
+# IOs                              : 49
 
 Cell Usage :
-# BELS                             : 2
+# BELS                             : 49
 #      GND                         : 1
+#      INV                         : 4
+#      LUT2                        : 7
+#      LUT3                        : 21
+#      LUT3_L                      : 1
+#      LUT4                        : 11
+#      LUT4_D                      : 2
+#      LUT4_L                      : 1
 #      VCC                         : 1
-# IO Buffers                       : 37
-#      IBUF                        : 18
-#      OBUF                        : 19
+# FlipFlops/Latches                : 79
+#      FDR                         : 1
+#      FDRE                        : 71
+#      FDRS                        : 3
+#      FDSE                        : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 46
+#      IBUF                        : 25
+#      OBUF                        : 21
 # Others                           : 1
-#      APB_interface               : 1
+#      Protection                  : 1
 =========================================================================
 
 Device utilization summary:
@@ -435,9 +442,12 @@ Device utilization summary:
 
 Selected Device : 3s250etq144-4 
 
- Number of Slices:                        0  out of   2448     0%  
- Number of IOs:                          47
- Number of bonded IOBs:                  37  out of    108    34%  
+ Number of Slices:                       50  out of   2448     2%  
+ Number of Slice Flip Flops:             79  out of   4896     1%  
+ Number of 4 input LUTs:                 47  out of   4896     0%  
+ Number of IOs:                          49
+ Number of bonded IOBs:                  47  out of    108    43%  
+ Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
 Partition Resource Summary:
@@ -457,7 +467,11 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-No clock signals found in this design
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+PCLK                               | BUFGP                  | 79    |
+-----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -467,44 +481,108 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: No path found
-   Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
-   Maximum combinational path delay: 3.692ns
+   Minimum period: 4.754ns (Maximum Frequency: 210.349MHz)
+   Minimum input arrival time before clock: 5.401ns
+   Maximum output required time after clock: 5.970ns
+   Maximum combinational path delay: 1.218ns
 
 Timing Detail:
 --------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 34 / 34
+Timing constraint: Default period analysis for Clock 'PCLK'
+  Clock period: 4.754ns (frequency: 210.349MHz)
+  Total number of paths / destination ports: 422 / 125
 -------------------------------------------------------------------------
-Delay:               3.692ns (Levels of Logic = 1)
-  Source:            APB_if:PRDATA<15> (PAD)
-  Destination:       PRDATA<15> (PAD)
+Delay:               4.754ns (Levels of Logic = 2)
+  Source:            SPI_module/spi_control/curr_state_FSM_FFd2 (FF)
+  Destination:       SPI_module/shiftregister16_in/data_15 (FF)
+  Source Clock:      PCLK rising
+  Destination Clock: PCLK rising
 
-  Data Path: APB_if:PRDATA<15> to PRDATA<15>
+  Data Path: SPI_module/spi_control/curr_state_FSM_FFd2 to SPI_module/shiftregister16_in/data_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    APB_interface:PRDATA<15>    1   0.000   0.420  APB_if (PRDATA_15_OBUF)
-     OBUF:I->O                 3.272          PRDATA_15_OBUF (PRDATA<15>)
+     FDRS:C->Q            13   0.591   0.987  SPI_module/spi_control/curr_state_FSM_FFd2 (SPI_module/spi_control/curr_state_FSM_FFd2)
+     LUT4_D:I3->LO         1   0.704   0.179  SPI_module/rate_generator/sampling11 (N21)
+     LUT2:I1->O           16   0.704   1.034  SPI_module/rate_generator/sampling2 (SPI_module/sampling)
+     FDRE:CE                   0.555          SPI_module/shiftregister16_in/data_0
     ----------------------------------------
-    Total                      3.692ns (3.272ns logic, 0.420ns route)
-                                       (88.6% logic, 11.4% route)
+    Total                      4.754ns (2.554ns logic, 2.200ns route)
+                                       (53.7% logic, 46.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'PCLK'
+  Total number of paths / destination ports: 235 / 130
+-------------------------------------------------------------------------
+Offset:              5.401ns (Levels of Logic = 3)
+  Source:            PADDR (PAD)
+  Destination:       APB_if/APB_Read/reg_PRDATA_15 (FF)
+  Destination Clock: PCLK rising
+
+  Data Path: PADDR to APB_if/APB_Read/reg_PRDATA_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.218   0.762  PADDR_IBUF (PADDR_IBUF)
+     LUT2:I0->O            1   0.704   0.424  APB_if/APB_Read/reg_PRDATA_not0001_SW0 (N3)
+     LUT4:I3->O           16   0.704   1.034  APB_if/APB_Read/reg_PRDATA_not0001 (APB_if/APB_Read/reg_PRDATA_not0001)
+     FDRE:CE                   0.555          APB_if/APB_Read/reg_PRDATA_0
+    ----------------------------------------
+    Total                      5.401ns (3.181ns logic, 2.220ns route)
+                                       (58.9% logic, 41.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'PCLK'
+  Total number of paths / destination ports: 21 / 20
+-------------------------------------------------------------------------
+Offset:              5.970ns (Levels of Logic = 2)
+  Source:            SPI_module/spi_control/curr_state_FSM_FFd2 (FF)
+  Destination:       SS (PAD)
+  Source Clock:      PCLK rising
+
+  Data Path: SPI_module/spi_control/curr_state_FSM_FFd2 to SS
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRS:C->Q            13   0.591   0.983  SPI_module/spi_control/curr_state_FSM_FFd2 (SPI_module/spi_control/curr_state_FSM_FFd2)
+     INV:I->O              1   0.704   0.420  SPI_module/spi_control/curr_state_FSM_Out51_INV_0 (SS_OBUF)
+     OBUF:I->O                 3.272          SS_OBUF (SS)
+    ----------------------------------------
+    Total                      5.970ns (4.567ns logic, 1.403ns route)
+                                       (76.5% logic, 23.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Delay:               1.218ns (Levels of Logic = 1)
+  Source:            PPROT<2> (PAD)
+  Destination:       APB_if/APB_Prot:PPROT<2> (PAD)
+
+  Data Path: PPROT<2> to APB_if/APB_Prot:PPROT<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             0   1.218   0.000  PPROT_2_IBUF (PPROT_2_IBUF)
+    Protection:PPROT<2>        0.000          APB_if/APB_Prot
+    ----------------------------------------
+    Total                      1.218ns (1.218ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 13.14 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 8.58 secs
  
 --> 
 
-Total memory usage is 246560 kilobytes
+Total memory usage is 246528 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   95 (   0 filtered)
-Number of infos    :    4 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
 

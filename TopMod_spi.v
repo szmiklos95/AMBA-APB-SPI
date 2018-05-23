@@ -9,7 +9,7 @@ module TopMod_spi(
 	output MOSI, SCLK, SS
     );
 	 
-wire shift_en, clk_out, load, sampling, update;
+wire shift_en, load, sampling, update;
 	 
 	rategen rate_generator (
 		.clk(clk), 

@@ -1,0 +1,2 @@
+verilog isim_temp "tb_shiftreg16_out.v"
+verilog isim_temp "D:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"
