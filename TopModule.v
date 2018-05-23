@@ -22,7 +22,7 @@ module TopModule(
 	input PCLK,
 	input PRESETn,
 	input PADDR,
-	input PROT,
+	input [2:0] PPROT,
 	input PSEL0,
 	input PENABLE,
 	input PWRITE,
@@ -39,25 +39,44 @@ module TopModule(
 	 
 wire [15:0] SPI_data_out;
 wire [15:0] SPI_data_in;
+wire SPI_done, SPI_send;
 
 TopMod_spi SPI_module(
 	.clk(PCLK),
 	.nrst(PRESETn),
+	
 	.MISO(MISO),
 	.MOSI(MOSI),
 	.SCLK(SCLK),
 	.SS(SS),
+	
 	.data_out(SPI_data_out),
-	.data_in(SPI_data_in)
+	.data_in(SPI_data_in),
+	
+	.done(SPI_done),
+	.send(SPI_send)
 );
 
 APB_interface APB_if(
 	.PCLK(PCLK),
 	.PRESETn(PRESETn),
-	.data_in(SPI_data_out),
-	.data_out(SPI_data_in),
+	
+	.APB_data_in(SPI_data_out),
+	.APB_data_out(SPI_data_in),
+	.SPI_done(SPI_done),
+	.SPI_send(SPI_send),
+	
+	.PWDATA(PWDATA),
+	.PADDR(PADDR),
+	.PPROT(PPROT),
+	.PSEL0(PSEL0),
+	.PENABLE(PENABLE),
+	.PWRITE(PWRITE),
+	.PSTRB(PSTRB),
+	
 	.PRDATA(PRDATA),
-	.PWDATA(PWDATA)
+	.PREADY(PREADY),
+	.PSLVERR(PSLVERR)
 );
 
 endmodule

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="AMBA-APB-SPI.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="TopModule.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="TopModule.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="TopModule.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="TopModule.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TopModule.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="TopModule.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="TopModule.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="TopModule.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TopModule_beh.prj"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="TopModule_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_TopMod_spi_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_TopModule_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_TopModule_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tb_TopModule_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_TopModule_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_control_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_shiftreg16_out_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1527065619" xil_pn:name="TRANEXT_compLibraries_FPGA" xil_pn:prop_ck="-7950462353738718727" xil_pn:start_ts="1527065619">
+      <status xil_pn:value="FailedRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527081613" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1527081613">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527082708" xil_pn:in_ck="-634450334897075423" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1527082708">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="APB_interface.v"/>
+      <outfile xil_pn:name="ErrorHandler.v"/>
+      <outfile xil_pn:name="PREADY_Setter.v"/>
+      <outfile xil_pn:name="Protection.v"/>
+      <outfile xil_pn:name="ReadHandler.v"/>
+      <outfile xil_pn:name="RegisterSelect.v"/>
+      <outfile xil_pn:name="TopMod_spi.v"/>
+      <outfile xil_pn:name="TopModule.v"/>
+      <outfile xil_pn:name="WriteHandler.v"/>
+      <outfile xil_pn:name="control.v"/>
+      <outfile xil_pn:name="rategen.v"/>
+      <outfile xil_pn:name="shiftreg16_in.v"/>
+      <outfile xil_pn:name="shiftreg16_out.v"/>
+      <outfile xil_pn:name="tb_TopMod_spi.v"/>
+      <outfile xil_pn:name="tb_TopModule.v"/>
+      <outfile xil_pn:name="tb_control.v"/>
+      <outfile xil_pn:name="tb_rategen.v"/>
+      <outfile xil_pn:name="tb_shiftreg16_in.v"/>
+      <outfile xil_pn:name="tb_shiftreg16_out.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1527081613" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="3430736962066544133" xil_pn:start_ts="1527081613">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527081613" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2473329942640009849" xil_pn:start_ts="1527081613">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527081613" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1443933170923109962" xil_pn:start_ts="1527081613">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527082708" xil_pn:in_ck="-634450334897075423" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1527082708">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="APB_interface.v"/>
+      <outfile xil_pn:name="ErrorHandler.v"/>
+      <outfile xil_pn:name="PREADY_Setter.v"/>
+      <outfile xil_pn:name="Protection.v"/>
+      <outfile xil_pn:name="ReadHandler.v"/>
+      <outfile xil_pn:name="RegisterSelect.v"/>
+      <outfile xil_pn:name="TopMod_spi.v"/>
+      <outfile xil_pn:name="TopModule.v"/>
+      <outfile xil_pn:name="WriteHandler.v"/>
+      <outfile xil_pn:name="control.v"/>
+      <outfile xil_pn:name="rategen.v"/>
+      <outfile xil_pn:name="shiftreg16_in.v"/>
+      <outfile xil_pn:name="shiftreg16_out.v"/>
+      <outfile xil_pn:name="tb_TopMod_spi.v"/>
+      <outfile xil_pn:name="tb_TopModule.v"/>
+      <outfile xil_pn:name="tb_control.v"/>
+      <outfile xil_pn:name="tb_rategen.v"/>
+      <outfile xil_pn:name="tb_shiftreg16_in.v"/>
+      <outfile xil_pn:name="tb_shiftreg16_out.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1527082714" xil_pn:in_ck="-634450334897075423" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-2591716603440817429" xil_pn:start_ts="1527082708">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="tb_TopModule_beh.prj"/>
+      <outfile xil_pn:name="tb_TopModule_isim_beh.exe"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1527082809" xil_pn:in_ck="-6601551468827661729" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5125788272079512274" xil_pn:start_ts="1527082808">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="tb_TopModule_isim_beh.wdb"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-8846520745593550" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1443933170923109962" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-5921492853799635536" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="5199527252417716204" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527065626" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="7342032405483438080" xil_pn:start_ts="1527065626">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1527068421" xil_pn:in_ck="5383204131368760762" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-2453416302795460727" xil_pn:start_ts="1527068410">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="TopModule.lso"/>
+      <outfile xil_pn:name="TopModule.ngc"/>
+      <outfile xil_pn:name="TopModule.ngr"/>
+      <outfile xil_pn:name="TopModule.prj"/>
+      <outfile xil_pn:name="TopModule.stx"/>
+      <outfile xil_pn:name="TopModule.syr"/>
+      <outfile xil_pn:name="TopModule.xst"/>
+      <outfile xil_pn:name="TopModule_beh.prj"/>
+      <outfile xil_pn:name="TopModule_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+  </transforms>
+
+</generated_project>

@@ -1,0 +1,43 @@
+Running: D:\Xilinx\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/Xilinx/Projects/AMBA-APB-SPI/tb_TopModule_isim_beh.exe -prj D:/Xilinx/Projects/AMBA-APB-SPI/tb_TopModule_beh.prj work.tb_TopModule work.glbl 
+ISim P.68d (signature 0x7708f090)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/WriteHandler.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/shiftreg16_out.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/shiftreg16_in.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/RegisterSelect.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/ReadHandler.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/rategen.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/Protection.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/PREADY_Setter.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/ErrorHandler.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/control.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/TopMod_spi.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/APB_interface.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/TopModule.v" into library work
+Analyzing Verilog file "D:/Xilinx/Projects/AMBA-APB-SPI/tb_TopModule.v" into library work
+Analyzing Verilog file "D:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module rategen
+Compiling module shiftreg16_in
+Compiling module shiftreg16_out
+Compiling module control
+Compiling module TopMod_spi
+Compiling module Protection
+Compiling module ErrorHandler
+Compiling module RegisterSelect
+Compiling module WriteHandler
+Compiling module ReadHandler
+Compiling module PREADY_Setter
+Compiling module APB_interface
+Compiling module TopModule
+Compiling module tb_TopModule
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 5 sub-compilation(s) to finish...
+Compiled 15 Verilog Units
+Built simulation executable D:/Xilinx/Projects/AMBA-APB-SPI/tb_TopModule_isim_beh.exe
+Fuse Memory Usage: 26264 KB
+Fuse CPU Usage: 702 ms
